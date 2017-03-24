@@ -8,10 +8,43 @@
 module.exports = {
 
   attributes: {
-      name :{
-        type : "String",
-        required : true
-      }
+    name:{
+        type:"string", 
+        required:true,
+        minLength: 3
+      },
+    surname:{
+        type:"string",
+        required:true,
+        minLength: 3
+      },
+    email:{
+        type:"email",
+        required:true,
+        unique: true
+      },
+    location:{
+    	type:"float"
+    },
+    points: {
+    	type: "integer"
+    },
+    is_worked: {
+    	type: "binary"
+    }
+  },
+
+   createUser: function (inputs, cb) {
+    
+    User.create({
+      name: inputs.name,
+      surname: inputs.surname,
+      email: inputs.email,
+      location: inputs.location,
+      points: inputs.points,
+      is_worked: inputs.is_worked
+    })
+    .exec(cb);
   }
 };
 
