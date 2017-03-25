@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-    name:{
+  /*  name:{
         type:"string", 
         required:true,
         minLength: 3
@@ -31,7 +31,7 @@ module.exports = {
     },
     is_worked: {
     	type: "binary"
-    }
+    } */
   },
 
 
@@ -46,6 +46,13 @@ module.exports = {
       is_worked: inputs.is_worked
     })
     .exec(cb);
-  }
+  },
+
+  getUser: function (inputs, cb) {
+    
+    User.find({"_id": ObjectId(inputs.id)})
+    .exec(cb);
+  },
+
 };
 

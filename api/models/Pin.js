@@ -29,9 +29,22 @@ module.exports = {
 
 console.log("Hello-->" + inputs.location_x);
 
-  	Pin.find()
+
+	inputs.location_x = parseFloat(inputs.location_x) + 1.0;
+
+	console.log("Hello-->" + inputs.location_x);
+  	/*Pin.find().where({
+        location_x: {
+            '>': 3.75
+        }
+    })
+  	.exec(cb); */
+
+  	Pin.find({ location_x: { $gt: inputs.location_x  } })
   	.exec(cb);
 
+
+  	
   	
 
   }

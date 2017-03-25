@@ -17,9 +17,7 @@ module.exports = {
 		      name: req.param('name'),
 		      surname: req.param('surname'),
 		      email: req.param('email'),
-		      location: req.param('location'),
-		      points: req.param('points'),
-		      is_worked: req.param('is_worked')
+		      gender: req.param('gender'),
 		    }, function (err, user) {
 		    
 		      if (err) return res.negotiate(err);
@@ -31,6 +29,19 @@ module.exports = {
 		    });
 	},
 
+
+	getUser: function(req,res)
+	{
+		var user = sails.models.user;
+
+		user.getUser({id: req.param('id')},
+			function (err,user) {
+			
+			if (err) return res.negotiate(err);
+
+		    return res.send(true);
+			});
+	}
 	
 };
 
