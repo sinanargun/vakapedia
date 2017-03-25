@@ -8,35 +8,29 @@
 module.exports = {
 
   attributes: {
-  /*  name:{
+  /*    name:{
         type:"string", 
         required:true,
         minLength: 3
       },
-    surname:{
+      surname:{
         type:"string",
         required:true,
         minLength: 3
       },
-    email:{
+      email:{
         type:"email",
         required:true,
         unique: true
       },
-    location:{
-    	type:"float"
+      gender: {
+        type:"string"
+      } */
+ 
     },
-    points: {
-    	type: "integer"
-    },
-    is_worked: {
-    	type: "binary"
-    } */
-  },
-
+  
 
    createUser: function (inputs, cb) {
-    
     User.create({
       name: inputs.name,
       surname: inputs.surname,
@@ -46,9 +40,9 @@ module.exports = {
     .exec(cb);
   },
 
-  getUser: function (inputs, cb) {
-    User.findOne({id: inputs.id})
-    .exec(cb);
+    getUser: function (inputs, cb) {
+      User.findOne({id: inputs.id})
+      .exec(cb);
   },
 
 };

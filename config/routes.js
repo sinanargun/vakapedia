@@ -37,10 +37,11 @@ module.exports.routes = {
   },
 
   '/getUser' : 'UserController.getUser',
+  '/findSimilarLocation' : 'PinController.findSimilarLocation',
 
   'POST /createUser': 'UserController.createUser',
   'POST /pinPlaces': 'PinController.pinPlaces',
-  'POST /findSimilarLocation' : 'PinController.findSimilarLocation',
+  
 
 
   /***************************************************************************

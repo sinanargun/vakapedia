@@ -18,17 +18,14 @@ module.exports = {
 
 		var user = sails.models.user;
 
-		console.log(req.param('key'));
-		console.log(postParameters);
-
-		 user.createUser(postParameters, function (err, user) {
+		user.createUser(postParameters, function (err, user) {
 		    
-		      if (err) return res.negotiate(err);
+		if (err) return res.negotiate(err);
 
-		      output.userId = user.id;
+		   	output.userId = user.id;
 		 
-		      return res.send(output);
-		    });
+		    return res.send(output);
+		});
 	},
 
 

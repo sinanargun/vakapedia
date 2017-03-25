@@ -7,11 +7,11 @@
 
 module.exports = {
 
-  attributes: {
-  	location_x:{
-    	type:"float"
-    }
-  },
+	 attributes: {
+
+
+ 	 },
+
 
   pinPlaces: function (inputs, cb) {
     
@@ -19,6 +19,7 @@ module.exports = {
       _id: inputs.id,
       location_x: inputs.location_x,
       location_y: inputs.location_y,
+      location_name: inputs.location_name,
       date_start: inputs.date_start,
       date_end: inputs.date_end
     })
@@ -27,26 +28,18 @@ module.exports = {
 
   findSimilarLocation: function(inputs, cb){
 
-console.log("Hello-->" + inputs.location_x);
+
+	var location_x_upper = parseFloat(inputs.location_x) + 1.0;
+	var location_x_lower = parseFloat(inputs.location_x) - 1.0;
+
+	var location_y_upper = parseFloat(inputs.location_y) + 1.0;
+	var location_y_lower = parseFloat(inputs.location_y) - 1.0;
 
 
-	inputs.location_x = parseFloat(inputs.location_x) + 1.0;
-
-	console.log("Hello-->" + inputs.location_x);
-  	/*Pin.find().where({
-        location_x: {
-            '>': 3.75
-        }
-    })
-  	.exec(cb); */
-
-  	Pin.find({ location_x: { $gt: inputs.location_x  } })
-  	.exec(cb);
-
-
-  	
-  	
-
+  	Pin.find({ location_x: { $gt: location_x_lower }, location_x : {$lt: location_x_upper},
+  				location_y: { $gt: location_y_lower }, location_y : {$lt: location_y_upper}
+  				 })
+  	.exec(cb);	
   }
 
 
