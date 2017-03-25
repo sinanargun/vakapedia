@@ -41,6 +41,9 @@ module.exports.routes = {
 
   'POST /createUser': 'UserController.createUser',
   'POST /pinPlaces': 'PinController.pinPlaces',
+  'POST /openTrip' : 'MatchController.openTrip',
+  'POST /joinTrip' : 'MatchController.joinTrip',
+
   
 
 
