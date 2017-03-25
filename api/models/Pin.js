@@ -16,7 +16,7 @@ module.exports = {
   pinPlaces: function (inputs, cb) {
     
     Pin.create({
-      _id: inputs.id,
+      user_id: inputs.user_id,
       location_x: inputs.location_x,
       location_y: inputs.location_y,
       location_name: inputs.location_name,

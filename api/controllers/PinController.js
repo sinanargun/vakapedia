@@ -14,7 +14,7 @@ module.exports = {
 		var output = {};
 
 		var postParameters = {
-			  'id': req.param('id'),
+			  'user_id': req.param('user_id'),
 		      'location_x': req.param('location_x'),
 		      'location_y': req.param('location_y'),
 		      'location_name' : req.param('location_name'),
@@ -54,7 +54,7 @@ module.exports = {
 
 								async.eachSeries(locations, function (location, callback) {
  								 
- 								 user.getUser({id: location.id}, function (err,user) {
+ 								 user.getUser({id: location.user_id}, function (err,user) {
 									if(user)
 									{
 										location['name'] = user.name;
