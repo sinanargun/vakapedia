@@ -36,10 +36,12 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+  '/getUser' : 'UserController.getUser',
 
   'POST /createUser': 'UserController.createUser',
   'POST /pinPlaces': 'PinController.pinPlaces',
   'POST /findSimilarLocation' : 'PinController.findSimilarLocation',
+
 
   /***************************************************************************
   *                                                                          *

@@ -41,16 +41,13 @@ module.exports = {
       name: inputs.name,
       surname: inputs.surname,
       email: inputs.email,
-      location: inputs.location,
-      points: inputs.points,
-      is_worked: inputs.is_worked
+      gender: inputs.gender
     })
     .exec(cb);
   },
 
   getUser: function (inputs, cb) {
-    
-    User.find({"_id": ObjectId(inputs.id)})
+    User.findOne({id: inputs.id})
     .exec(cb);
   },
 

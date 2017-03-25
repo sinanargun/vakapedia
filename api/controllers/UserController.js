@@ -10,20 +10,22 @@ module.exports = {
 	createUser: function(req,res)
 	{
 		var output = {};
+		var postParameters = {
+		      'name': req.param('name'),
+		      'surname': req.param('surname'),
+		      'email': req.param('email'),
+		      'gender': req.param('gender')};
 
 		var user = sails.models.user;
 
-		 user.createUser({
-		      name: req.param('name'),
-		      surname: req.param('surname'),
-		      email: req.param('email'),
-		      gender: req.param('gender'),
-		    }, function (err, user) {
+		console.log(req.param('key'));
+		console.log(postParameters);
+
+		 user.createUser(postParameters, function (err, user) {
 		    
 		      if (err) return res.negotiate(err);
 
-		      req.session.me = user.id;
-		      output.userId = req.session.me;
+		      output.userId = user.id;
 		 
 		      return res.send(output);
 		    });
@@ -34,13 +36,12 @@ module.exports = {
 	{
 		var user = sails.models.user;
 
-		user.getUser({id: req.param('id')},
-			function (err,user) {
+		user.getUser({id: req.query.id}, function (err,user) {
 			
 			if (err) return res.negotiate(err);
 
-		    return res.send(true);
-			});
+		    return res.send(user);
+		});
 	}
 	
 };
