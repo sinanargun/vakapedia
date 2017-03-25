@@ -34,6 +34,7 @@ module.exports = {
     }
   },
 
+
    createUser: function (inputs, cb) {
     
     User.create({

@@ -37,7 +37,9 @@ module.exports.routes = {
   },
 
 
-  '/createUser': 'UserController.createUser',
+  'POST /createUser': 'UserController.createUser',
+  'POST /pinPlaces': 'PinController.pinPlaces',
+  'POST /findSimilarLocation' : 'PinController.findSimilarLocation',
 
   /***************************************************************************
   *                                                                          *

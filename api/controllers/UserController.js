@@ -11,9 +11,9 @@ module.exports = {
 	{
 		var output = {};
 
-		var User = sails.models.user;
+		var user = sails.models.user;
 
-		 User.createUser({
+		 user.createUser({
 		      name: req.param('name'),
 		      surname: req.param('surname'),
 		      email: req.param('email'),
@@ -30,6 +30,7 @@ module.exports = {
 		      return res.send(output);
 		    });
 	},
+
 	
 };
 
