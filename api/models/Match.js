@@ -12,7 +12,7 @@ module.exports = {
         type:"string"
       },
       joined_user:{
-        joined_user:"string"
+        type:"string"
       },
       location_name:{
         type: "string"
@@ -47,8 +47,8 @@ module.exports = {
   joinTrip: function(inputs,cb) {
   	   
   	Match.update({opener_user: inputs.opener_user,location_name:inputs.location_name},
-                {$set: {'joined_user': inputs.joined_user,
-                        'common_hours': inputs.common_hours}}).exec(cb);
+                {joined_user: inputs.joined_user,
+                  common_hours: inputs.common_hours}).exec(cb);
 
   },
 

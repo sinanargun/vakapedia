@@ -42,6 +42,7 @@ module.exports = {
 		      'common_hours': req.param('common_hours')
 		};
 
+
 		if(!module.exports.isValid(postParameters))
 		{
 			return res.send({ 'error': 'You should send right postParameters' });
