@@ -17,8 +17,7 @@ module.exports = {
 		};
 
 		var match = sails.models.match;
-
-		 match.openTrip(postParameters, function (err, result) {
+		match.openTrip(postParameters, function (err, result) {
 		    
 		    output.result = 1;
 			if (err) output.result = 0;
@@ -34,12 +33,12 @@ module.exports = {
 		var postParameters = {
 			  'opener_user': req.param('opener_user'),
 		      'joined_user': req.param('joined_user'),
+		      'location_name' : req.param('location_name'),
 		      'common_hours': req.param('common_hours')
 		};
 
 		var match = sails.models.match;
-
-		 match.joinTrip(postParameters, function (err, result) {
+		match.joinTrip(postParameters, function (err, result) {
 		    
 		    output.result = 1;
 			if (err) output.result = 0;
