@@ -16,6 +16,12 @@ module.exports = {
 		      'email': req.param('email'),
 		      'gender': req.param('gender')};
 
+
+		if(!module.exports.isValid(postParameters))
+		{
+			return res.send({ 'error': 'You should send right postParameters' });
+		} 
+
 		var user = sails.models.user;
 
 		user.createUser(postParameters, function (err, user) {
@@ -39,6 +45,29 @@ module.exports = {
 
 		    return res.send(user);
 		});
+	},
+
+
+	isValid: function(postParameters)
+	{	
+
+		var validator = require('validator');
+
+		var hasError = 0;
+		if(postParameters.email != undefined && !validator.isEmail(postParameters.email))
+		{
+			hasError++;
+		}
+
+		if(hasError > 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
 	}
 	
 };

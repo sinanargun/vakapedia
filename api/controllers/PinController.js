@@ -22,6 +22,11 @@ module.exports = {
 		      'date_end': req.param('date_end')
 		};
 
+		if(!module.exports.isValid(postParameters))
+		{
+			return res.send({ 'error': 'You should send right postParameters' });
+		} 
+
 		var pin = sails.models.pin;
 
 		 pin.pinPlaces(postParameters, function (err, result) {
@@ -70,7 +75,40 @@ module.exports = {
 								});	
 								
 						});		
-	}	
+	},	
+
+
+	isValid: function(postParameters)
+	{	
+
+		var validator = require('validator');
+
+		var hasError = 0;
+		if(postParameters.location_x != undefined && !validator.isFloat(postParameters.location_x))
+		{
+			hasError++;
+		}
+
+		if(postParameters.location_y != undefined && !validator.isFloat(postParameters.location_y))
+		{
+			hasError++;
+		}
+
+		if(postParameters.location_name != undefined && validator.isEmpty(postParameters.location_name))
+		{
+			hasError++;
+		}
+
+		if(hasError > 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+	}
 			
 
 };
