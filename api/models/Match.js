@@ -34,19 +34,25 @@ module.exports = {
     
     Match.create({
       opener_user: inputs.opener_user,
-      location_name: inputs.location_name
+      joined_user: "",
+      location_name: inputs.location_name,
+      common_hours: "",
+      is_opener_joined: false,
+      is_joined_joined: false
+
     })
     .exec(cb);
   },
 
   joinTrip: function(inputs,cb) {
   	   
-  	Match.update({opener_user:inputs.opener_user},
-  		{joined_user: inputs.joined_user,common_hours: inputs.common_hours}).exec(function afterwards(err, updated){
-  	  if (err) {
-  	    return res.negotiate(err);
-  	  }
-  	});
-  }
+  	Match.update({opener_user: inputs.opener_user},
+                {$set: {'joined_user': inputs.joined_user,
+                        'common_hours': inputs.common_hours}}).exec(cb);
+
+  },
+
+
+
 };
 

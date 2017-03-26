@@ -10,7 +10,6 @@ module.exports = {
 
 	openTrip: function(req,res)
 	{
-
 		var output = {};
 		var postParameters = {
 			  'opener_user': req.param('opener_user'),
