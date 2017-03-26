@@ -38,6 +38,7 @@ module.exports.routes = {
 
   '/getUser' : 'UserController.getUser',
   '/findSimilarLocation' : 'PinController.findSimilarLocation',
+  '/findJoinedTrips' : 'MatchController.findJoinedTrips',
 
   'POST /createUser': 'UserController.createUser',
   'POST /pinPlaces': 'PinController.pinPlaces',

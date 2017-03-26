@@ -53,6 +53,14 @@ module.exports = {
   },
 
 
+  findJoinedTrips: function(inputs,cb){
+
+    Match.find({ joined_user: inputs.joined_user}) 
+    .exec(cb);
+
+  }
+
+
 
 };
 

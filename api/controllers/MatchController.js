@@ -60,6 +60,44 @@ module.exports = {
 	},
 
 
+
+	findJoinedTrips: function(req,res)
+	{
+		var async = require("async");
+		var match = sails.models.match;
+
+		var output = [];
+		match.findJoinedTrips({joined_user: req.query.joined_user}, function (err, trips) {
+		    
+								if (err) 
+								{
+									return res.send(false);
+								}
+
+ 								var user = sails.models.user; 								 
+
+								async.eachSeries(trips, function (trip, callback) {
+ 								 
+ 								 user.getUser({id: trip.opener_user}, function (err,user) {
+									if(user)
+									{
+										trip['name'] = user.name;
+										trip['surname'] = user.surname;	
+									}	
+									output.push(trip);
+									callback();
+								});		
+								}, function (err,location) {
+ 									 if (err) { throw err; }
+ 									 //console.log('Well done :-)!');
+ 									 res.send(output);
+								});	
+								
+						});		
+
+
+	},
+
 	isValid: function(postParameters)
 	{	
 
