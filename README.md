@@ -47,3 +47,5 @@ a [Sails](http://sailsjs.org) application
 meeting.
 
 *try adding repo to composer fadsfasfsafsaf
+
+* You can do this
