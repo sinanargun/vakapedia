@@ -1,0 +1,16 @@
+{
+    "name": "sinan/sinan",
+    "description": "A DOMPDF Wrapper for Laravel",
+    "license": "MIT",
+    "keywords": ["laravel", "dompdf", "pdf"],
+    "authors": [
+        {
+            "name": "Barry vd. Heuvel",
+            "email": "barryvdh@gmail.com"
+        }
+    ],
+    "require": {
+       
+       
+    }
+}
