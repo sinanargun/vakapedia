@@ -46,4 +46,4 @@ a [Sails](http://sailsjs.org) application
 * At the "nearby tab" you can seek currently available people who nearby your recent location and join
 meeting.
 
-*try adding repo to composer
+*try adding repo to composer fadsfasfsafsaf
