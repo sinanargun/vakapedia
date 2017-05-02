@@ -55,6 +55,7 @@ try {
   }
 }
 
+console.log("Try to see changes");
 
 // Start server
 sails.lift(rc('sails'));
